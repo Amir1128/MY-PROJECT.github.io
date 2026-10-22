@@ -9,7 +9,18 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/dist/style.css">
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: {} } }
+    </script>
 </head>
 
 <body class="b">
@@ -17,79 +28,73 @@
     <!-- free trial section starts here -->
 
     <div>
-
-        <!-- info starts here -->
-
         <div class="flex justify-between">
             <a href="/dist/index.html"><img class="h-[10%] hover:cursor-pointer" src="/images/logo.jpg" alt=""></a>
             <span class="mt-[5vh] ml-[5vh]">
-                <h1 class="text-5xl font-bold text-blue-900">Start your free trial.</h1>
-                <p class="mt-[6vh] text-3xl">No credit card required, no software to install.</p>
-                <p class="mt-[3vh] text-xl">With your 30-day trial, you get:</p>
-                <div class="mt-[3vh] space-y-3 text-lg">
-                    <ul><i class="text-green-700 mr-3 text-xl font-bold fa-solid fa-check"></i>Pre-loaded data or upload
+                <h1 class="text-5xl font-bold text-blue-900 dark:text-blue-200">Start your free trial.</h1>
+                <p class="mt-[6vh] text-3xl dark:text-slate-300">No credit card required, no software to install.</p>
+                <p class="mt-[3vh] text-xl dark:text-slate-300">With your 30-day trial, you get:</p>
+                <div class="mt-[3vh] space-y-3 text-lg dark:text-slate-300">
+                    <ul><i class="text-green-700 dark:text-green-400 mr-3 text-xl font-bold fa-solid fa-check"></i>Pre-loaded data or upload
                         your own</ul>
-                    <ul><i class="text-green-700 mr-3 text-xl font-bold fa-solid fa-check"></i>Pre-configured processes,
+                    <ul><i class="text-green-700 dark:text-green-400 mr-3 text-xl font-bold fa-solid fa-check"></i>Pre-configured processes,
                         reports, and dashboards</ul>
-                    <ul><i class="text-green-700 mr-3 text-xl font-bold fa-solid fa-check"></i>Guided experiences for
+                    <ul><i class="text-green-700 dark:text-green-400 mr-3 text-xl font-bold fa-solid fa-check"></i>Guided experiences for
                         sales reps, leaders, and administrators</ul>
-                    <ul><i class="text-green-700 mr-3 text-xl font-bold fa-solid fa-check"></i>Online training and live
+                    <ul><i class="text-green-700 dark:text-green-400 mr-3 text-xl font-bold fa-solid fa-check"></i>Online training and live
                         onboarding webinars</ul>
                     <br>
-                    <ul class="mt- ">Questions? Talk to an expert: 1800-420-7332.</ul>
+                    <ul class="mt-">Questions? Talk to an expert: 1800-420-7332.</ul>
                 </div>
                 <video class="h-[70vh] mt-6 rounded-xl autoplay" autoplay src="/images/vid-au-hp-marquee.mp4"></video>
             </span>
 
-            <!-- info ends here -->
-
             <!-- sign up bar starts here -->
 
             <div class="w-[120vh] ml-28 flex">
-
                 <div>
                     <div class="space-y-8">
                         <span>
-                            <h4 class="mt-[10%] ml-16 text-xl font-bold text-blue-800">Sign up now to start your free
+                            <h4 class="mt-[10%] ml-16 text-xl font-bold text-blue-800 dark:text-blue-300">Sign up now to start your free
                                 sales
                                 trial.</h4>
-                            <p class="ml-16 mt-7 text-xl text-gray-500 font-semibold">Complete the form to start your
+                            <p class="ml-16 mt-7 text-xl text-gray-500 dark:text-slate-400 font-semibold">Complete the form to start your
                                 free
                                 trial. Our team will be in<br> touch to help you make the most of
                                 your trial.</p>
                         </span>
                         <input
-                            class="ml-16 h-12 w-64 rounded-lg border-2 active:border-blue-800 text-gray-700 border-gray-500"
+                            class="ml-16 h-12 w-64 rounded-lg border-2 active:border-blue-800 text-gray-700 dark:text-slate-100 dark:bg-slate-900 dark:placeholder-slate-400 dark:border-slate-600 border-gray-500"
                             type="text" placeholder="First name">
-                        <input class="ml-16 h-12 w-64 rounded-lg border-2 border-gray-500" type="text"
+                        <input class="ml-16 h-12 w-64 rounded-lg border-2 border-gray-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:placeholder-slate-400" type="text"
                             placeholder="Last name">
-                        <input class="ml-16 h-12 w-64 rounded-lg border-2 border-gray-500" type="text"
+                        <input class="ml-16 h-12 w-64 rounded-lg border-2 border-gray-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:placeholder-slate-400" type="text"
                             placeholder="E-mail">
-                        <input class="ml-16 h-12 w-64 rounded-lg border-2 border-gray-500" type="text"
+                        <input class="ml-16 h-12 w-64 rounded-lg border-2 border-gray-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:placeholder-slate-400" type="text"
                             placeholder="Job title">
-                        <input class="ml-16 h-12 w-64 rounded-lg border-2 border-gray-500" type="text"
+                        <input class="ml-16 h-12 w-64 rounded-lg border-2 border-gray-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:placeholder-slate-400" type="text"
                             placeholder="Company">
-                        <input class="ml-16 h-12 w-64 rounded-lg border-2 border-gray-500" type="text"
+                        <input class="ml-16 h-12 w-64 rounded-lg border-2 border-gray-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:placeholder-slate-400" type="text"
                             placeholder="Employees">
-                        <input class="ml-16 h-12 w-64 rounded-lg border-2 border-gray-500" type="text"
+                        <input class="ml-16 h-12 w-64 rounded-lg border-2 border-gray-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:placeholder-slate-400" type="text"
                             placeholder="Phone">
-                        <input class="ml-16 h-12 w-64 rounded-lg border-2 border-gray-500" type="text"
+                        <input class="ml-16 h-12 w-64 rounded-lg border-2 border-gray-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:placeholder-slate-400" type="text"
                             placeholder="Country/Region">
                         <br>
                     </div>
                     <span class="flex">
                         <input class="h-5 mt-4 w-5 pb-0 pt-0 ml-14 hover:cursor-pointer" type="checkbox">
-                        <p class="text-xl  mt-3 ml-3">I agree to the <a href="#" class="text-blue-700"> Main Services
+                        <p class="text-xl mt-3 ml-3 dark:text-slate-300">I agree to the <a href="#" class="text-blue-700 dark:text-blue-400"> Main Services
                                 Agreement.</a></p>
                     </span>
-                    <div class="mt-8 ml-14 text-base">
+                    <div class="mt-8 ml-14 text-base dark:text-slate-300">
                         <p>Your free trial may be provisioned on or migrated to Hyperforce, Salesforce's public<br>
                             cloud infrastructure.</p>
                         <p class="mt-8">By registering, you confirm that you agree to the storing and processing of
-                            your<br> personal data by Salesforce as described in the <a class="text-blue-700"
+                            your<br> personal data by Salesforce as described in the <a class="text-blue-700 dark:text-blue-400"
                                 href="">Privacy Statement.</a></p>
                         <button
-                            class=" bg-blue-700 w-[70vh] h-16 rounded-xl text-white text-xl ml-5 mt-10 hover:bg-blue-950">START
+                            class="bg-blue-700 w-[70vh] h-16 rounded-xl text-white text-xl ml-5 mt-10 hover:bg-blue-950">START
                             MY FREE TRIAL</button>
                     </div>
                 </div>
@@ -97,17 +102,15 @@
         </div>
     </div>
 
-    <!-- Sign bar up ends here -->
-
     <!-- free trial section ends here -->
 
     <!-- terms starts here -->
 
-    <div class="flex justify-around h-24 text-sm text-bold bg-slate-300">
+    <div class="flex justify-around h-24 text-sm text-bold bg-slate-300 dark:bg-slate-800 dark:text-slate-300">
         <p class="mt-5">*INR/user/month (billed annually)<br>
             Salesforce Starter in India, minimum 12 month subscription, plus taxes. New Customers only. See<br> Terms
             for details. Contact your sales representative for more info.</p>
-        <img class="mt-5  h-14" src="/images/images.png" alt="">
+        <img class="mt-5 h-14" src="/images/images.png" alt="">
     </div>
 
     <!-- terms ends here -->
@@ -115,13 +118,13 @@
     <!-- footer starts here -->
 
     <div class="h-32 w-full bg-blue-950 flex">
-        <button class="rounded-md border-2 ml-12 mt-8 w-64 h-14 text-xl text-white border-white bg-blue-950 "><i
+        <button class="rounded-md border-2 ml-12 mt-8 w-64 h-14 text-xl text-white border-white bg-blue-950"><i
                 class="mr-3 fa-solid fa-globe"></i>WORLDWIDE</button>
         <div class="ml-10 mt-8 text-white">
             <p>© Copyright 2024 Salesforce, Inc. All rights reserved. Various trademarks held by their respective
                 owners.</p>
             <div class="flex mt-3">
-                <a class=" text-blue-400 hover:cursor-pointer" href="#">Legal</a>
+                <a class="text-blue-400 hover:cursor-pointer" href="#">Legal</a>
                 <a class="ml-5 text-blue-400 hover:cursor-pointer" href="#">Terms of Services</a>
                 <a class="ml-5 text-blue-400 hover:cursor-pointer" href="#">Privacy</a>
                 <a class="ml-5 text-blue-400 hover:cursor-pointer" href="#">Responsible Disclosure</a>
@@ -130,14 +133,40 @@
                 <a class="ml-5 text-blue-400 hover:cursor-pointer" href="#">Coockie Preferences</a>
                 <a class="ml-5 text-blue-400 hover:cursor-pointer" href="#">Your Privacy Choices</a>
             </div>
-
         </div>
-
     </div>
 
     <!-- footer ends here -->
 
+    <!-- floating theme toggle (no navbar on this page) -->
+    <button id="theme-toggle" title="Toggle theme"
+        class="fixed top-5 right-5 z-50 rounded-full w-12 h-12 text-2xl shadow-lg bg-white dark:bg-slate-800 text-blue-800 dark:text-yellow-300 hover:bg-blue-200 dark:hover:bg-slate-700 hover:cursor-pointer">
+        <i id="theme-icon" class="fa-solid fa-moon"></i>
+    </button>
 
+    <script>
+        (function () {
+            const toggle = document.getElementById('theme-toggle');
+            const icon = document.getElementById('theme-icon');
+            if (!toggle || !icon) return;
+            function updateIcon() {
+                if (document.documentElement.classList.contains('dark')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            }
+            updateIcon();
+            toggle.addEventListener('click', () => {
+                const isDark = document.documentElement.classList.toggle('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                updateIcon();
+            });
+        })();
+    </script>
 
 </body>
+
 </html>

@@ -9,44 +9,53 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: {} } }
+    </script>
 </head>
 
 <body>
 
     <!-- navbar starts here -->
 
-    <nav class="flex justify-center text-center text-blue-950">
+    <nav class="flex justify-center text-center text-blue-950 dark:text-slate-200">
         <div class="flex justify-between text-center h-[14vh] w-[98%]">
             <div class="flex justify-center text-center space-x-10 h-[5rem] text-xl font-bold">
-                <a href=""><img class="w-32 h-[7rem] ml-8 mt-1 hover:cursor-pointer" src="/images/logo.jpg" alt=""></a>
-                <p class="mt-12 hover:text-blue-400 hover:cursor-pointer">Product</p>
-                <p class="mt-12 hover:text-blue-400 hover:cursor-pointer">Industries</p>
-                <p class="mt-12 hover:text-blue-400 hover:cursor-pointer">Customers</p>
-                <p class="mt-12 hover:text-blue-400 hover:cursor-pointer">Learning</p>
-                <p class="mt-12 hover:text-blue-400 hover:cursor-pointer">Support</p>
-                <p class="mt-12 hover:text-blue-400 hover:cursor-pointer">More</p>
-
+                <a href="/dist/index.html"><img class="w-32 h-[7rem] ml-8 mt-1 hover:cursor-pointer" src="/images/logo.jpg" alt=""></a>
+                <p class="mt-12 hover:text-blue-400 hover:cursor-pointer dark:text-slate-200">Product</p>
+                <p class="mt-12 hover:text-blue-400 hover:cursor-pointer dark:text-slate-200">Industries</p>
+                <p class="mt-12 hover:text-blue-400 hover:cursor-pointer dark:text-slate-200">Customers</p>
+                <p class="mt-12 hover:text-blue-400 hover:cursor-pointer dark:text-slate-200">Learning</p>
+                <p class="mt-12 hover:text-blue-400 hover:cursor-pointer dark:text-slate-200">Support</p>
+                <p class="mt-12 hover:text-blue-400 hover:cursor-pointer dark:text-slate-200">More</p>
             </div>
             <div class="flex justify-evenly w-[40rem] align-middle space-x-5 text-xl">
                 <span class="mt-9">
-                    <a class="hover:cursor-pointer hover:text-blue-500" href="/dist/contact us.html">Contact Us</a>
-                    <p>1800-420-7332</p>
+                    <a class="hover:cursor-pointer hover:text-blue-500 dark:text-slate-200" href="/dist/contact us.html">Contact Us</a>
+                    <p class="dark:text-slate-300">1800-420-7332</p>
                 </span>
-                <i
-                    class="mt-12 rounded-full w-10 p-1 pl-1 h-10 text-2xl hover:cursor-pointer hover:text-blue-600 hover:bg-blue-200 fa-solid fa-magnifying-glass"></i>
-                <i
-                    class="mt-12 rounded-full w-10 p-1 pl-1 h-10 text-2xl hover:cursor-pointer hover:text-blue-600 hover:bg-blue-200 fa-solid fa-globe"></i>
-                <button
-                    class="flex mt-12 rounded-full w-28 h-10 pl-3 hover:cursor-pointer hover:text-blue-600 hover:bg-blue-200 text-2xl space-x-2">
-                    <i
-                        class=" mt-2 hover:cursor-pointer hover:text-blue-600 hover:bg-blue-200 fa-solid fa-right-to-bracket"></i>
+                <i class="mt-12 rounded-full w-10 p-1 pl-1 h-10 text-2xl hover:cursor-pointer hover:text-blue-600 hover:bg-blue-200 dark:text-slate-200 dark:hover:bg-slate-700 fa-solid fa-magnifying-glass"></i>
+                <i class="mt-12 rounded-full w-10 p-1 pl-1 h-10 text-2xl hover:cursor-pointer hover:text-blue-600 hover:bg-blue-200 dark:text-slate-200 dark:hover:bg-slate-700 fa-solid fa-globe"></i>
+                <button class="flex mt-12 rounded-full w-28 h-10 pl-3 hover:cursor-pointer hover:text-blue-600 hover:bg-blue-200 dark:text-slate-200 dark:hover:bg-slate-700 text-2xl space-x-2">
+                    <i class="mt-2 fa-solid fa-right-to-bracket"></i>
                     <p>Login</p>
+                </button>
+                <button id="theme-toggle" title="Toggle theme"
+                    class="mt-12 rounded-full w-10 h-10 text-2xl hover:cursor-pointer hover:text-blue-600 hover:bg-blue-200 dark:hover:bg-slate-700 dark:text-yellow-300">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
                 </button>
                 <a href="/dist/Try for free.html"><button
                         class="text-white w-[10rem] font-bold bg-green-600 h-14 rounded-md mt-9 ml-2 hover:cursor-pointer hover:bg-green-950">Try
                         For Free</button></a>
-
             </div>
         </div>
     </nav>
@@ -57,8 +66,8 @@
 
     <div class="flex mt-4">
         <div class="w-[50%]">
-            <h1 class="text-blue-950 mt-20 ml-10 text-7xl font-bold">Try Salesforce Starter Suite for free.</h1>
-            <p class="mt-16 ml-10 text-2xl">Unite marketing, sales, and service in a single app. Try Salesforce<br>
+            <h1 class="text-blue-950 dark:text-blue-200 mt-20 ml-10 text-7xl font-bold">Try Salesforce Starter Suite for free.</h1>
+            <p class="mt-16 ml-10 text-2xl dark:text-slate-300">Unite marketing, sales, and service in a single app. Try Salesforce<br>
                 Starter Suite today. There's nothing to install. No credit card required.</p>
             <span>
                 <a href="/dist/Try for free.html"><button
@@ -66,7 +75,7 @@
                         free
                         trial <i class="fa-solid fa-arrow-up-right-from-square"></i></button></a>
                 <button
-                    class="text-xl font-bold text-blue-800 border-4 border-blue-800 mt-10 ml-10 hover:text-blue-950 hover:border-blue-950 bg-white h-16 w-56 rounded-md">watch
+                    class="text-xl font-bold text-blue-800 dark:text-blue-300 border-4 border-blue-800 dark:border-blue-400 mt-10 ml-10 hover:text-blue-950 hover:border-blue-950 bg-white dark:bg-transparent h-16 w-56 rounded-md">watch
                     Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
             </span>
         </div>
@@ -76,8 +85,6 @@
                     src="/images/What is Salesforce  2024  Simple Explanation of Salesforce by Shrey Sharma480p.mp4"
                     type="video/mp4"></video>
             </div>
-
-
         </div>
     </div>
 
@@ -88,46 +95,46 @@
     <!-- services start here -->
 
     <div>
-        <h1 class="text-3xl font-bold ml-[33rem] mt-14 text-blue-950">Learn what Salesforce products can do for you.
+        <h1 class="text-3xl font-bold ml-[33rem] mt-14 text-blue-950 dark:text-blue-200">Learn what Salesforce products can do for you.
         </h1>
-        <div class=" mt-10 flex justify-evenly rounded-lgw-max h-[25rem]">
-            <div class="h-[25rem] w-[20rem] rounded-lg">
+        <div class="mt-10 flex justify-evenly rounded-lg w-max h-[25rem]">
+            <div class="h-[25rem] w-[20rem] rounded-lg dark:bg-slate-800/60 p-2">
                 <img class="h-48 rounded-lg mt-8" src="/images/service_icon-1.jpg" alt="">
-                <h5 class="ml-6 text-2xl font-bold mt-2 hover:text-blue-600 hover:cursor-pointer">Small Buisness</h5>
+                <h5 class="ml-6 text-2xl font-bold mt-2 hover:text-blue-600 hover:cursor-pointer dark:text-slate-200">Small Buisness</h5>
                 <br>
-                <p class="ml-6 text-xl ">Sales, service, and email <br> tools in a single app.</p>
+                <p class="ml-6 text-xl dark:text-slate-300">Sales, service, and email <br> tools in a single app.</p>
                 <br>
                 <br>
-                <a href="#" class="ml-6 text-2xl mt-2 pt-4 hover:text-blue-700">Learn more</a>
+                <a href="#" class="ml-6 text-2xl mt-2 pt-4 hover:text-blue-700 dark:text-blue-400">Learn more</a>
             </div>
-            <div class="h-[25rem] w-[20rem] rounded-lg  ">
+            <div class="h-[25rem] w-[20rem] rounded-lg dark:bg-slate-800/60 p-2">
                 <img class="h-48 rounded-lg mt-8" src="/images/service_icon-2.jpg" alt="">
-                <h5 class="ml-6 text-2xl font-bold mt-2 hover:text-blue-600 hover:cursor-pointer">Sales Cloud</h5>
+                <h5 class="ml-6 text-2xl font-bold mt-2 hover:text-blue-600 hover:cursor-pointer dark:text-slate-200">Sales Cloud</h5>
                 <br>
-                <p class="ml-6 text-xl ">Close more deals and speed<br> up growth with the #1 CRM..</p>
+                <p class="ml-6 text-xl dark:text-slate-300">Close more deals and speed<br> up growth with the #1 CRM..</p>
                 <br>
                 <br>
-                <a href="#" class="ml-6 text-2xl mt-2 pt-4 hover:text-blue-700">Learn more</a>
+                <a href="#" class="ml-6 text-2xl mt-2 pt-4 hover:text-blue-700 dark:text-blue-400">Learn more</a>
             </div>
-            <div class="h-[25rem] w-[20rem] rounded-lg ">
+            <div class="h-[25rem] w-[20rem] rounded-lg dark:bg-slate-800/60 p-2">
                 <img class="h-48 rounded-lg mt-8" src="/images/service_icon-3.jpg" alt="">
-                <h5 class="ml-6 text-2xl font-bold mt-2 hover:text-blue-600 hover:cursor-pointer">Service Cloud</h5>
+                <h5 class="ml-6 text-2xl font-bold mt-2 hover:text-blue-600 hover:cursor-pointer dark:text-slate-200">Service Cloud</h5>
                 <br>
-                <p class="ml-6 text-xl ">Make customers happy faster and build loyalty with Service Cloud.</p>
+                <p class="ml-6 text-xl dark:text-slate-300">Make customers happy faster and build loyalty with Service Cloud.</p>
                 <br>
-                <a href="#" class="ml-6 text-2xl mt-2 pt-4 hover:text-blue-700">Learn more</a>
+                <a href="#" class="ml-6 text-2xl mt-2 pt-4 hover:text-blue-700 dark:text-blue-400">Learn more</a>
             </div>
-            <div class="h-[25rem] w-[20rem] rounded-lg ">
+            <div class="h-[25rem] w-[20rem] rounded-lg dark:bg-slate-800/60 p-2">
                 <img class="h-48 rounded-lg mt-8" src="/images/service_icon-4.jpg" alt="">
-                <h5 class="ml-6 text-2xl font-bold mt-2 hover:text-blue-600 hover:cursor-pointer">Marketing Cloud</h5>
+                <h5 class="ml-6 text-2xl font-bold mt-2 hover:text-blue-600 hover:cursor-pointer dark:text-slate-200">Marketing Cloud</h5>
                 <br>
-                <p class="ml-6 text-xl ">Build customer relationships for life with data-first digital marketing.</p>
+                <p class="ml-6 text-xl dark:text-slate-300">Build customer relationships for life with data-first digital marketing.</p>
                 <br>
-                <a href="#" class="ml-6 text-2xl mt-2 pt-4 hover:text-blue-700">Learn more</a>
+                <a href="#" class="ml-6 text-2xl mt-2 pt-4 hover:text-blue-700 dark:text-blue-400">Learn more</a>
             </div>
         </div>
         <a href="/dist/View all products.html"><button
-                class="text-xl font-bold text-blue-600 border-4 border-blue-600 mt-[10vh] ml-[90vh] hover:text-blue-800 hover:border-blue-800 bg-white h-16 w-[35vh] rounded-md">View
+                class="text-xl font-bold text-blue-600 dark:text-blue-300 border-4 border-blue-600 dark:border-blue-400 mt-[10vh] ml-[90vh] hover:text-blue-800 hover:border-blue-800 bg-white dark:bg-transparent h-16 w-[35vh] rounded-md">View
                 all our Products</button></a>
         <img class="ml-[10vh]" src="/images/mount-bg 2.png" alt="">
     </div>
@@ -137,8 +144,8 @@
     <!-- about us satrts here -->
 
     <div>
-        <h1 class="ml-[22rem] mt-20 font-bold text-blue-950 text-5xl">We bring companies and customers together</h1>
-        <p class="ml-[22rem] mt-10 text-xl">Salesforce is the world’s most trusted customer relationship management
+        <h1 class="ml-[22rem] mt-20 font-bold text-blue-950 dark:text-blue-200 text-5xl">We bring companies and customers together</h1>
+        <p class="ml-[22rem] mt-10 text-xl dark:text-slate-300">Salesforce is the world's most trusted customer relationship management
             (CRM) platform.<br> We help your
             marketing, sales, commerce, service and IT teams work as one from<br> anywhere — so you can keep your
             customers
@@ -149,7 +156,7 @@
                 free
                 trial <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
             <button
-                class="text-xl font-bold text-blue-800 border-4 border-blue-800 mt-10 ml-10 hover:text-blue-950 hover:border-blue-950 bg-white h-16 w-56 rounded-md">watch
+                class="text-xl font-bold text-blue-800 dark:text-blue-300 border-4 border-blue-800 dark:border-blue-400 mt-10 ml-10 hover:text-blue-950 hover:border-blue-950 bg-white dark:bg-transparent h-16 w-56 rounded-md">watch
                 Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
         </span>
     </div>
@@ -159,114 +166,109 @@
     <!-- skills starts here -->
 
     <div>
-
-        <h1 class="ml-[22rem] mt-20 font-bold text-blue-950 text-5xl">Learn valuable skills for free, with Trailhead.
+        <h1 class="ml-[22rem] mt-20 font-bold text-blue-950 dark:text-blue-200 text-5xl">Learn valuable skills for free, with Trailhead.
         </h1>
-        <p class="ml-[22rem] mt-10 text-xl">Follow guided learning paths and get hands-on to learn Salesforce, digital,
+        <p class="ml-[22rem] mt-10 text-xl dark:text-slate-300">Follow guided learning paths and get hands-on to learn Salesforce, digital,
             and soft skills from anywhere.</p>
-
     </div>
 
     <div class="flex justify-evenly">
-        <div class="h-[480px] w-[320px] rounded-lg mt-14">
+        <div class="h-[480px] w-[320px] rounded-lg mt-14 dark:bg-slate-800/60 p-2">
             <img class="ml-[75px] h-40 mt-3" src="/images/badge1.png" alt="">
-            <div class="rounded-2xl bg-blue-200 pt-1 h-8 w-20 ml-6 flex justify-center text-blue-950">Module</div>
+            <div class="rounded-2xl bg-blue-200 dark:bg-blue-900 pt-1 h-8 w-20 ml-6 flex justify-center text-blue-950 dark:text-blue-200">Module</div>
             <br>
-            <a href="#" class="mt-10 text-2xl ml-4 text-blue-950 font-bold hover:cursor-pointer">Salesforce Values:
+            <a href="#" class="mt-10 text-2xl ml-4 text-blue-950 dark:text-slate-200 font-bold hover:cursor-pointer">Salesforce Values:
                 Quick</a>
-            <a href="#" class="mt-10 text-2xl ml-4 text-blue-950 font-bold hover:cursor-pointer"> Look</a>
-            <p class="text-xl ml-3">Learn how Salesforce helps your business build stronger relationships with your
+            <a href="#" class="mt-10 text-2xl ml-4 text-blue-950 dark:text-slate-200 font-bold hover:cursor-pointer"> Look</a>
+            <p class="text-xl ml-3 dark:text-slate-300">Learn how Salesforce helps your business build stronger relationships with your
                 customers.</p>
             <br>
             <br>
-            <a class="ml-4 hover:text-blue-900 hover:cursor-pointer text-xl font-bold text-blue-600" href="#">Start
+            <a class="ml-4 hover:text-blue-900 hover:cursor-pointer text-xl font-bold text-blue-600 dark:text-blue-400" href="#">Start
                 Learning</a>
         </div>
-        <div class="h-[480px] w-[320px] rounded-lg mt-14">
+        <div class="h-[480px] w-[320px] rounded-lg mt-14 dark:bg-slate-800/60 p-2">
             <img class="ml-[75px] h-40 mt-3" src="/images/badge2.png" alt="">
-            <div class="rounded-2xl bg-blue-200 h-8 w-20 pt-1 ml-6 flex justify-center text-blue-950">Module</div>
+            <div class="rounded-2xl bg-blue-200 dark:bg-blue-900 h-8 w-20 pt-1 ml-6 flex justify-center text-blue-950 dark:text-blue-200">Module</div>
             <br>
-            <a href="#" class="mt-10 text-2xl ml-4 text-blue-950 font-bold hover:cursor-pointer">Salesforce Values:
+            <a href="#" class="mt-10 text-2xl ml-4 text-blue-950 dark:text-slate-200 font-bold hover:cursor-pointer">Salesforce Values:
                 Quick</a>
-            <a href="#" class="mt-10 text-2xl ml-4 text-blue-950 font-bold hover:cursor-pointer"> Look</a>
-            <p class="text-xl ml-4">Learn how Salesforce helps your business build stronger relationships with your
+            <a href="#" class="mt-10 text-2xl ml-4 text-blue-950 dark:text-slate-200 font-bold hover:cursor-pointer"> Look</a>
+            <p class="text-xl ml-4 dark:text-slate-300">Learn how Salesforce helps your business build stronger relationships with your
                 customers.</p>
             <br>
             <br>
-            <a class="ml-4 hover:text-blue-900 hover:cursor-pointer text-xl font-bold text-blue-600" href="#">Start
+            <a class="ml-4 hover:text-blue-900 hover:cursor-pointer text-xl font-bold text-blue-600 dark:text-blue-400" href="#">Start
                 Learning</a>
         </div>
-        <div class="h-[480px] w-[320px] rounded-lg mt-14">
+        <div class="h-[480px] w-[320px] rounded-lg mt-14 dark:bg-slate-800/60 p-2">
             <img class="ml-[75px] h-40 mt-3" src="/images/badge3.png" alt="">
-            <div class="rounded-2xl bg-blue-200 h-8 w-20 pt-1 ml-6 flex justify-center text-blue-950">Module</div>
+            <div class="rounded-2xl bg-blue-200 dark:bg-blue-900 h-8 w-20 pt-1 ml-6 flex justify-center text-blue-950 dark:text-blue-200">Module</div>
             <br>
-            <a href="#" class="mt-10 text-2xl ml-4 text-blue-950 font-bold hover:cursor-pointer">Salesforce Values:
+            <a href="#" class="mt-10 text-2xl ml-4 text-blue-950 dark:text-slate-200 font-bold hover:cursor-pointer">Salesforce Values:
                 Quick</a>
-            <a href="#" class="mt-10 text-2xl ml-4 text-blue-950 font-bold hover:cursor-pointer"> Look</a>
-            <p class="text-xl ml-4">Learn how Salesforce helps your business build stronger relationships with your
+            <a href="#" class="mt-10 text-2xl ml-4 text-blue-950 dark:text-slate-200 font-bold hover:cursor-pointer"> Look</a>
+            <p class="text-xl ml-4 dark:text-slate-300">Learn how Salesforce helps your business build stronger relationships with your
                 customers.</p>
             <br>
             <br>
-            <a class="ml-4 hover:text-blue-900 hover:cursor-pointer text-xl font-bold text-blue-600" href="#">Start
+            <a class="ml-4 hover:text-blue-900 hover:cursor-pointer text-xl font-bold text-blue-600 dark:text-blue-400" href="#">Start
                 Learning</a>
         </div>
     </div>
 
     <span class="flex justify-center mt-4">
         <button
-            class="text-xl font-bold text-blue-800 border-4 border-blue-800 mt-10 ml-10 hover:text-blue-950 hover:border-blue-950 bg-white h-16 w-56 rounded-md">Learn
+            class="text-xl font-bold text-blue-800 dark:text-blue-300 border-4 border-blue-800 dark:border-blue-400 mt-10 ml-10 hover:text-blue-950 hover:border-blue-950 bg-white dark:bg-transparent h-16 w-56 rounded-md">Learn
             for free <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
     </span>
 
-
     <!-- skills ends here -->
-
 
     <!-- our customers starts here -->
 
     <div>
-        <h1 class="ml-[30rem] mt-20 font-bold text-blue-950 text-5xl">Over 150,000 companies, both big<br> and small,
+        <h1 class="ml-[30rem] mt-20 font-bold text-blue-950 dark:text-blue-200 text-5xl">Over 150,000 companies, both big<br> and small,
             are growing their<br> business with Salesforce.
         </h1>
         <span class="flex justify-center mt-4">
             <button
-                class="text-xl font-bold text-blue-800 border-4 border-blue-800 mt-10 ml-10 hover:text-blue-950 hover:border-blue-950 bg-white h-16 w-56 rounded-md">View
+                class="text-xl font-bold text-blue-800 dark:text-blue-300 border-4 border-blue-800 dark:border-blue-400 mt-10 ml-10 hover:text-blue-950 hover:border-blue-950 bg-white dark:bg-transparent h-16 w-56 rounded-md">View
                 all Customers</button>
         </span>
     </div>
 
     <div>
-
         <div class="flex text-wrap:wrap mt-20 justify-center w-full">
-            <div class=" h-[100px] w-[200px] ">
-                <img class=" h-[90px] pt-5 pl-3" src="/images/logo-balaji.png" alt="">
+            <div class="h-[100px] w-[200px]">
+                <img class="h-[90px] pt-5 pl-3" src="/images/logo-balaji.png" alt="">
             </div>
             <div>
-                <img class=" h-[90px] pt-5 pl-3" src="/images/logo-flame.png" alt="">
+                <img class="h-[90px] pt-5 pl-3" src="/images/logo-flame.png" alt="">
             </div>
             <div>
-                <img class=" h-[90px] pt-5 pl-3" src="/images/logo-genpact.png" alt="">
+                <img class="h-[90px] pt-5 pl-3" src="/images/logo-genpact.png" alt="">
             </div>
             <div>
-                <img class=" h-[90px] pt-5 pl-3" src="/images/logo-godrejboyce.png" alt="">
+                <img class="h-[90px] pt-5 pl-3" src="/images/logo-godrejboyce.png" alt="">
             </div>
         </div>
         <div class="flex justify-center w-full">
             <div>
-                <img class=" h-[90px] pt-5 pl-3" src="/images/logo-mahindra.png" alt="">
+                <img class="h-[90px] pt-5 pl-3" src="/images/logo-mahindra.png" alt="">
             </div>
             <div>
-                <img class=" h-[90px] pt-5 pl-3" src="/images/logo-pepe.png" alt="">
+                <img class="h-[90px] pt-5 pl-3" src="/images/logo-pepe.png" alt="">
             </div>
             <div>
-                <img class=" h-[90px] pt-5 pl-3" src="/images/logo-razorpay.png" alt="">
+                <img class="h-[90px] pt-5 pl-3" src="/images/logo-razorpay.png" alt="">
             </div>
             <div>
-                <img class=" h-[90px] pt-5 pl-3" src="/images/logo-secutech.png" alt="">
+                <img class="h-[90px] pt-5 pl-3" src="/images/logo-secutech.png" alt="">
             </div>
         </div>
-        <div class="flex justify-center p-0">
-            <img src="/images/logos-bg-2.png" alt="">
+        <div class="flex justify-center p-0 dark:bg-slate-900 rounded-lg">
+            <img src="/images/logos-bg-2.png" alt="" class="dark:opacity-80">
         </div>
     </div>
 
@@ -276,14 +278,14 @@
 
     <div class="flex justify-between">
         <div class="mt-60">
-            <h1 class="text-5xl mt-32 ml-32 font-bold">Questions? We’ll put you on the right path.</h1>
-            <p class=" mt-6 ml-60 text-3xl">Ask about Salesforce products, pricing, implementation,<br> or anything
+            <h1 class="text-5xl mt-32 ml-32 font-bold dark:text-blue-200">Questions? We'll put you on the right path.</h1>
+            <p class="mt-6 ml-60 text-3xl dark:text-slate-300">Ask about Salesforce products, pricing, implementation,<br> or anything
                 else. Our highly trained reps are
                 <br> standing by, ready to help.
             </p>
             <span class="flex justify-center mt-20">
                 <a href="/dist/contact us.html"><button
-                    class="text-xl font-bold text-blue-800 border-4 border-blue-800 mt-20 ml-6 hover:text-blue-950 hover:border-blue-950 bg-white h-16 w-56 rounded-md">Contact
+                    class="text-xl font-bold text-blue-800 dark:text-blue-300 border-4 border-blue-800 dark:border-blue-400 mt-20 ml-6 hover:text-blue-950 hover:border-blue-950 bg-white dark:bg-transparent h-16 w-56 rounded-md">Contact
                     Us <i class="fa-solid fa-arrow-up-right-from-square"></i></button></a>
             </span>
         </div>
@@ -296,58 +298,58 @@
 
     <!-- footer starts here -->
 
-    <div class="  w-full h-96 flex">
+    <div class="w-full h-96 flex dark:bg-slate-900">
         <div>
             <img class="ml-4 mt-7 pt-5" src="/images/logo.jpg" alt="">
             <br>
             <span class="mt-8 text-3xl space-x-2 ml-5">
-                <i class="hover:cursor-pointer mt-10 fa-brands fa-facebook"></i>
-                <i class="hover:cursor-pointer mt-10 fa-brands fa-square-x-twitter"></i>
-                <i class="hover:cursor-pointer mt-10 fa-brands fa-linkedin"></i>
-                <i class="hover:cursor-pointer mt-10 fa-brands fa-square-instagram"></i>
-                <i class="hover:cursor-pointer mt-10 fa-brands fa-square-youtube"></i>
-                <p class="font-bold text-xl mt-10 ml-5">Call Us at: 1800-420-7332</p>
+                <i class="hover:cursor-pointer mt-10 fa-brands fa-facebook dark:text-slate-300"></i>
+                <i class="hover:cursor-pointer mt-10 fa-brands fa-square-x-twitter dark:text-slate-300"></i>
+                <i class="hover:cursor-pointer mt-10 fa-brands fa-linkedin dark:text-slate-300"></i>
+                <i class="hover:cursor-pointer mt-10 fa-brands fa-square-instagram dark:text-slate-300"></i>
+                <i class="hover:cursor-pointer mt-10 fa-brands fa-square-youtube dark:text-slate-300"></i>
+                <p class="font-bold text-xl mt-10 ml-5 dark:text-slate-300">Call Us at: 1800-420-7332</p>
             </span>
         </div>
         <div class="flex justify-between">
             <div class="mt-16 ml-48 space-y-4">
-                <ul class="font-bold text-xl mb-10">New to Salesforce</ul>
-                <ul class="hover:text-blue-600 hover:cursor-pointer">Why Salesforce</ul>
-                <ul class="hover:text-blue-600 hover:cursor-pointer">What is CRM?</ul>
-                <ul class="hover:text-blue-600 hover:cursor-pointer">explore All Products</ul>
-                <ul class="hover:text-blue-600 hover:cursor-pointer">SaaS</ul>
-                <ul class="hover:text-blue-600 hover:cursor-pointer">Customer Success</ul>
-                <ul class="hover:text-blue-600 hover:cursor-pointer">Product Pricing</ul>
+                <ul class="font-bold text-xl mb-10 dark:text-slate-200">New to Salesforce</ul>
+                <ul class="hover:text-blue-600 hover:cursor-pointer dark:text-slate-300 dark:hover:text-blue-400">Why Salesforce</ul>
+                <ul class="hover:text-blue-600 hover:cursor-pointer dark:text-slate-300 dark:hover:text-blue-400">What is CRM?</ul>
+                <ul class="hover:text-blue-600 hover:cursor-pointer dark:text-slate-300 dark:hover:text-blue-400">explore All Products</ul>
+                <ul class="hover:text-blue-600 hover:cursor-pointer dark:text-slate-300 dark:hover:text-blue-400">SaaS</ul>
+                <ul class="hover:text-blue-600 hover:cursor-pointer dark:text-slate-300 dark:hover:text-blue-400">Customer Success</ul>
+                <ul class="hover:text-blue-600 hover:cursor-pointer dark:text-slate-300 dark:hover:text-blue-400">Product Pricing</ul>
             </div>
             <div class="mt-16 ml-48 space-y-4">
-                <ul class="font-bold text-xl mb-10">New to Salesforce</ul>
-                <ul class="hover:text-blue-600 hover:cursor-pointer">Why Salesforce</ul>
-                <ul class="hover:text-blue-600 hover:cursor-pointer">What is CRM?</ul>
-                <ul class="hover:text-blue-600 hover:cursor-pointer">explore All Products</ul>
-                <ul class="hover:text-blue-600 hover:cursor-pointer">SaaS</ul>
-                <ul class="hover:text-blue-600 hover:cursor-pointer">Customer Success</ul>
-                <ul class="hover:text-blue-600 hover:cursor-pointer">Product Pricing</ul>
+                <ul class="font-bold text-xl mb-10 dark:text-slate-200">New to Salesforce</ul>
+                <ul class="hover:text-blue-600 hover:cursor-pointer dark:text-slate-300 dark:hover:text-blue-400">Why Salesforce</ul>
+                <ul class="hover:text-blue-600 hover:cursor-pointer dark:text-slate-300 dark:hover:text-blue-400">What is CRM?</ul>
+                <ul class="hover:text-blue-600 hover:cursor-pointer dark:text-slate-300 dark:hover:text-blue-400">explore All Products</ul>
+                <ul class="hover:text-blue-600 hover:cursor-pointer dark:text-slate-300 dark:hover:text-blue-400">SaaS</ul>
+                <ul class="hover:text-blue-600 hover:cursor-pointer dark:text-slate-300 dark:hover:text-blue-400">Customer Success</ul>
+                <ul class="hover:text-blue-600 hover:cursor-pointer dark:text-slate-300 dark:hover:text-blue-400">Product Pricing</ul>
             </div>
             <div class="mt-16 ml-48 space-y-4">
-                <ul class="font-bold text-xl mb-10">New to Salesforce</ul>
-                <ul class="hover:text-blue-600 hover:cursor-pointer">Why Salesforce</ul>
-                <ul class="hover:text-blue-600 hover:cursor-pointer">What is CRM?</ul>
-                <ul class="hover:text-blue-600 hover:cursor-pointer">explore All Products</ul>
-                <ul class="hover:text-blue-600 hover:cursor-pointer">SaaS</ul>
-                <ul class="hover:text-blue-600 hover:cursor-pointer">Customer Success</ul>
-                <ul class="hover:text-blue-600 hover:cursor-pointer">Product Pricing</ul>
+                <ul class="font-bold text-xl mb-10 dark:text-slate-200">New to Salesforce</ul>
+                <ul class="hover:text-blue-600 hover:cursor-pointer dark:text-slate-300 dark:hover:text-blue-400">Why Salesforce</ul>
+                <ul class="hover:text-blue-600 hover:cursor-pointer dark:text-slate-300 dark:hover:text-blue-400">What is CRM?</ul>
+                <ul class="hover:text-blue-600 hover:cursor-pointer dark:text-slate-300 dark:hover:text-blue-400">explore All Products</ul>
+                <ul class="hover:text-blue-600 hover:cursor-pointer dark:text-slate-300 dark:hover:text-blue-400">SaaS</ul>
+                <ul class="hover:text-blue-600 hover:cursor-pointer dark:text-slate-300 dark:hover:text-blue-400">Customer Success</ul>
+                <ul class="hover:text-blue-600 hover:cursor-pointer dark:text-slate-300 dark:hover:text-blue-400">Product Pricing</ul>
             </div>
         </div>
     </div>
 
     <div class="mt-5 h-32 w-full bg-blue-950 flex">
-        <button class="rounded-md border-2 ml-12 mt-8 w-64 h-14 text-xl text-white border-white bg-blue-950 "><i
+        <button class="rounded-md border-2 ml-12 mt-8 w-64 h-14 text-xl text-white border-white bg-blue-950"><i
                 class="mr-3 fa-solid fa-globe"></i>WORLDWIDE</button>
         <div class="ml-10 mt-8 text-white">
             <p>© Copyright 2024 Salesforce, Inc. All rights reserved. Various trademarks held by their respective
                 owners.</p>
             <div class="flex mt-3">
-                <a class=" text-blue-400 hover:cursor-pointer" href="#">Legal</a>
+                <a class="text-blue-400 hover:cursor-pointer" href="#">Legal</a>
                 <a class="ml-5 text-blue-400 hover:cursor-pointer" href="#">Terms of Services</a>
                 <a class="ml-5 text-blue-400 hover:cursor-pointer" href="#">Privacy</a>
                 <a class="ml-5 text-blue-400 hover:cursor-pointer" href="#">Responsible Disclosure</a>
@@ -356,12 +358,33 @@
                 <a class="ml-5 text-blue-400 hover:cursor-pointer" href="#">Coockie Preferences</a>
                 <a class="ml-5 text-blue-400 hover:cursor-pointer" href="#">Your Privacy Choices</a>
             </div>
-
         </div>
-
     </div>
 
-    <!-- footer starts here -->
+    <!-- footer ends here -->
+
+    <script>
+        (function () {
+            const toggle = document.getElementById('theme-toggle');
+            const icon = document.getElementById('theme-icon');
+            if (!toggle || !icon) return;
+            function updateIcon() {
+                if (document.documentElement.classList.contains('dark')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            }
+            updateIcon();
+            toggle.addEventListener('click', () => {
+                const isDark = document.documentElement.classList.toggle('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                updateIcon();
+            });
+        })();
+    </script>
 
 </body>
 
